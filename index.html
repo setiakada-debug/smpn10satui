@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#dff1ff">
+<title>SMP Negeri 10 Satui</title>
+
+<style>
+:root{
+  --blue:#5ca9df;
+  --blue-dark:#236b9d;
+  --soft:#eaf6ff;
+  --soft2:#d9efff;
+  --white:#ffffff;
+  --text:#183247;
+  --muted:#6d8292;
+  --border:#d7eaf7;
+  --shadow:0 10px 30px rgba(52,110,150,.10);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(180deg,#dff3ff 0%,#f5fbff 45%,#ffffff 100%);
+  color:var(--text);
+  min-height:100vh;
+}
+
+button,input{
+  font:inherit;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+/* TOP */
+
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(150,200,230,.35);
+}
+
+.top-inner{
+  max-width:1100px;
+  margin:auto;
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  width:44px;
+  height:44px;
+  border-radius:14px;
+  background:linear-gradient(145deg,#83c9f4,#3c8ec7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-weight:900;
+  font-size:13px;
+  box-shadow:0 7px 18px rgba(52,130,190,.22);
+}
+
+.brand h1{
+  font-size:14px;
+  line-height:1.2;
+}
+
+.brand p{
+  font-size:11px;
+  color:var(--muted);
+  margin-top:3px;
+}
+
+.menu-btn{
+  width:42px;
+  height:42px;
+  border:0;
+  border-radius:13px;
+  background:var(--soft);
+  color:var(--blue-dark);
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:42px 18px 25px;
+}
+
+.hero-box{
+  position:relative;
+  overflow:hidden;
+  padding:32px 24px;
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 90% 10%,rgba(255,255,255,.85),transparent 30%),
+    linear-gradient(135deg,#c9eaff,#eaf7ff);
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow:var(--shadow);
+}
+
+.hero-box:after{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  right:-60px;
+  bottom:-70px;
+  border-radius:50%;
+  background:rgba(92,169,223,.13);
+}
+
+.badge{
+  display:inline-block;
+  background:rgba(255,255,255,.8);
+  color:var(--blue-dark);
+  padding:7px 11px;
+  border-radius:30px;
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:15px;
+}
+
+.hero h2{
+  font-size:clamp(28px,7vw,48px);
+  line-height:1.05;
+  letter-spacing:-1.5px;
+  max-width:650px;
+}
+
+.hero h2 span{
+  color:var(--blue-dark);
+}
+
+.hero p{
+  color:#587385;
+  margin-top:13px;
+  max-width:600px;
+  line-height:1.6;
+  font-size:14px;
+}
+
+/* SEARCH */
+
+.search-wrap{
+  max-width:1100px;
+  margin:auto;
+  padding:0 18px 25px;
+}
+
+.search{
+  position:relative;
+}
+
+.search input{
+  width:100%;
+  border:1px solid var(--border);
+  background:white;
+  padding:15px 18px 15px 45px;
+  border-radius:17px;
+  outline:none;
+  color:var(--text);
+  box-shadow:var(--shadow);
+}
+
+.search input:focus{
+  border-color:#86c7eb;
+}
+
+.search-icon{
+  position:absolute;
+  left:16px;
+  top:14px;
+  color:#6d9bb7;
+}
+
+/* SECTIONS */
+
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:0 18px 100px;
+}
+
+section{
+  margin-top:30px;
+  scroll-margin-top:90px;
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:10px;
+  margin-bottom:13px;
+}
+
+.section-head h3{
+  font-size:20px;
+}
+
+.section-head p{
+  color:var(--muted);
+  font-size:12px;
+}
+
+/* FOLDER GRID */
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.card{
+  background:rgba(255,255,255,.9);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:17px;
+  box-shadow:var(--shadow);
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+}
+
+.folder{
+  min-height:115px;
+  cursor:pointer;
+}
+
+.folder-icon{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--soft);
+  color:var(--blue-dark);
+  font-size:20px;
+  margin-bottom:12px;
+}
+
+.folder h4{
+  font-size:14px;
+}
+
+.folder p{
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.4;
+  margin-top:5px;
+}
+
+/* ANNOUNCEMENT */
+
+.announcement{
+  padding:20px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#ffffff,#e8f6ff);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.announcement .status{
+  display:inline-block;
+  font-size:10px;
+  font-weight:bold;
+  color:#2673a5;
+  background:#d9efff;
+  padding:6px 9px;
+  border-radius:20px;
+  margin-bottom:10px;
+}
+
+.announcement h4{
+  font-size:18px;
+}
+
+.announcement p{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+  margin-top:7px;
+}
+
+/* CLASS */
+
+.class-tabs{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding-bottom:5px;
+}
+
+.class-tabs button{
+  flex:0 0 auto;
+  border:1px solid var(--border);
+  background:white;
+  color:var(--blue-dark);
+  padding:9px 15px;
+  border-radius:30px;
+  cursor:pointer;
+}
+
+.class-tabs button.active{
+  background:var(--blue);
+  color:white;
+}
+
+.class-content{
+  margin-top:12px;
+}
+
+.class-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:14px 0;
+  border-bottom:1px solid #edf4f8;
+}
+
+.class-row:last-child{
+  border-bottom:0;
+}
+
+.class-name{
+  font-weight:bold;
+}
+
+.class-info{
+  color:var(--muted);
+  font-size:11px;
+}
+
+/* SCHEDULE */
+
+.schedule{
+  overflow:hidden;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+
+th{
+  background:#e2f3ff;
+  color:#28698f;
+  text-align:left;
+}
+
+th,td{
+  padding:12px 10px;
+  border-bottom:1px solid #edf4f8;
+}
+
+/* TAGS */
+
+.tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.tag{
+  padding:9px 12px;
+  background:var(--soft);
+  color:#28698f;
+  border-radius:12px;
+  font-size:12px;
+  font-weight:bold;
+}
+
+/* COMING SOON */
+
+.coming{
+  text-align:center;
+  padding:32px 18px;
+}
+
+.coming .big{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.coming h4{
+  font-size:18px;
+}
+
+.coming p{
+  color:var(--muted);
+  font-size:13px;
+  margin-top:7px;
+  line-height:1.5;
+}
+
+/* CONTACT */
+
+.wa{
+  display:block;
+  text-align:center;
+  margin-top:15px;
+  padding:13px;
+  background:#54aee3;
+  color:white;
+  border-radius:14px;
+  font-weight:bold;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:30px 18px 100px;
+  color:#78909f;
+  font-size:11px;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+  position:fixed;
+  z-index:200;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 24px);
+  max-width:500px;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(18px);
+  border:1px solid var(--border);
+  border-radius:22px;
+  box-shadow:0 12px 35px rgba(40,100,140,.18);
+  padding:9px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+
+.bottom-nav a{
+  text-align:center;
+  padding:7px 2px;
+  color:#78909f;
+  font-size:10px;
+}
+
+.bottom-nav a:first-child{
+  color:var(--blue-dark);
+  font-weight:bold;
+}
+
+.bottom-nav span{
+  display:block;
+  font-size:17px;
+  margin-bottom:3px;
+}
+
+/* MOBILE */
+
+@media(max-width:520px){
+  .hero{
+    padding-top:28px;
+  }
+
+  .hero-box{
+    padding:27px 20px;
+  }
+
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .card{
+    padding:14px;
+  }
+}
+
+@media(min-width:700px){
+  .grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="top-inner">
+    <div class="brand">
+      <div class="logo">SMP<br>10</div>
+      <div>
+        <h1>SMP Negeri 10 Satui</h1>
+        <p>Informasi & kegiatan sekolah</p>
+      </div>
+    </div>
+    <button class="menu-btn" onclick="scrollToSection('menu')">☰</button>
+  </div>
+</header>
+
+<div id="home" class="hero">
+  <div class="hero-box">
+    <div class="badge">WEBSITE DEMO SEKOLAH</div>
+    <h2>Selamat datang di<br><span>SMP Negeri 10 Satui</span></h2>
+    <p>
+      Pusat informasi sekolah, kegiatan siswa, akademik,
+      organisasi, ekstrakurikuler, dan dokumentasi.
+    </p>
+  </div>
+</div>
+
+<div class="search-wrap">
+  <div class="search">
+    <span class="search-icon">⌕</span>
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Cari informasi sekolah..."
+      oninput="searchSite()"
+    >
+  </div>
+</div>
+
+<main>
+
+<section id="pengumuman">
+  <div class="section-head">
+    <div>
+      <h3>Pengumuman terbaru</h3>
+      <p>Informasi yang sedang ditunggu</p>
+    </div>
+  </div>
+
+  <div class="announcement searchable">
+    <span class="status">COMING SOON</span>
+    <h4>Struktur OSIS Baru</h4>
+    <p>
+      Informasi mengenai struktur kepengurusan OSIS terbaru
+      diperkirakan akan diumumkan pada Sabtu atau Senin.
+    </p>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="section-head">
+    <div>
+      <h3>Menu sekolah</h3>
+      <p>Pilih kategori informasi</p>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <a class="card folder searchable" href="#profil">
+      <div class="folder-icon">⌂</div>
+      <h4>Profil Sekolah</h4>
+      <p>Sejarah, visi, misi dan fasilitas.</p>
+    </a>
+
+    <a class="card folder searchable" href="#struktur">
+      <div class="folder-icon">♙</div>
+      <h4>Struktur</h4>
+      <p>Kepala sekolah, guru dan OSIS.</p>
+    </a>
+
+    <a class="card folder searchable" href="#kelas">
+      <div class="folder-icon">▦</div>
+      <h4>Kelas</h4>
+      <p>VII, VIII dan IX.</p>
+    </a>
+
+    <a class="card folder searchable" href="#jadwal">
+      <div class="folder-icon">◷</div>
+      <h4>Jadwal</h4>
+      <p>Jadwal pelajaran sekolah.</p>
+    </a>
+
+    <a class="card folder searchable" href="#galeri">
+      <div class="folder-icon">▧</div>
+      <h4>Galeri</h4>
+      <p>Dokumentasi kegiatan sekolah.</p>
+    </a>
+
+    <a class="card folder searchable" href="#osis">
+      <div class="folder-icon">★</div>
+      <h4>OSIS</h4>
+      <p>Program dan kepengurusan OSIS.</p>
+    </a>
+
+    <a class="card folder searchable" href="#ekskul">
+      <div class="folder-icon">✦</div>
+      <h4>Ekstrakurikuler</h4>
+      <p>Pramuka, tari, handball dan futsal.</p>
+    </a>
+
+    <a class="card folder searchable" href="#kontak">
+      <div class="folder-icon">⌁</div>
+      <h4>Kontak</h4>
+      <p>Hubungi sekolah melalui WhatsApp.</p>
+    </a>
+
+  </div>
+</section>
+
+<section id="profil">
+  <div class="section-head">
+    <div>
+      <h3>Profil sekolah</h3>
+      <p>Informasi umum</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>SMP Negeri 10 Satui</h4>
+    <p style="color:var(--muted);font-size:13px;line-height:1.7;margin-top:9px;">
+      Website demo informasi sekolah yang menjadi pusat informasi
+      kegiatan, akademik, organisasi, dan dokumentasi siswa.
+    </p>
+
+    <div class="tags" style="margin-top:15px;">
+      <span class="tag">Profil</span>
+      <span class="tag">Akademik</span>
+      <span class="tag">Kegiatan</span>
+      <span class="tag">Siswa</span>
+    </div>
+  </div>
+</section>
+
+<section id="struktur">
+  <div class="section-head">
+    <div>
+      <h3>Struktur sekolah</h3>
+      <p>Informasi struktur akan diperbarui</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card searchable">
+      <div class="folder-icon">♙</div>
+      <h4>Kepala Sekolah</h4>
+      <p>Data akan ditambahkan.</p>
+    </div>
+
+    <div class="card searchable">
+      <div class="folder-icon">♟</div>
+      <h4>Guru & Staf</h4>
+      <p>Data akan ditambahkan.</p>
+    </div>
+
+    <div class="card searchable">
+      <div class="folder-icon">★</div>
+      <h4>OSIS</h4>
+      <p>Struktur terbaru segera hadir.</p>
+    </div>
+  </div>
+</section>
+
+<section id="kelas">
+  <div class="section-head">
+    <div>
+      <h3>Kelas</h3>
+      <p>VII sampai IX</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="class-tabs">
+      <button class="active" onclick="showClass('VII',this)">VII</button>
+      <button onclick="showClass('VIII',this)">VIII</button>
+      <button onclick="showClass('IX',this)">IX</button>
+    </div>
+
+    <div id="classContent" class="class-content"></div>
+  </div>
+</section>
+
+<section id="jadwal">
+  <div class="section-head">
+    <div>
+      <h3>Jadwal pelajaran</h3>
+      <p>Contoh tampilan jadwal</p>
+    </div>
+  </div>
+
+  <div class="card schedule">
+    <table>
+      <tr>
+        <th>Hari</th>
+        <th>Mata Pelajaran</th>
+      </tr>
+      <tr>
+        <td>Senin</td>
+        <td>Bahasa Indonesia</td>
+      </tr>
+      <tr>
+        <td>Selasa</td>
+        <td>Matematika</td>
+      </tr>
+      <tr>
+        <td>Rabu</td>
+        <td>IPA</td>
+      </tr>
+      <tr>
+        <td>Kamis</td>
+        <td>Informatika</td>
+      </tr>
+      <tr>
+        <td>Jumat</td>
+        <td>Seni Budaya</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="section-head">
+    <div>
+      <h3>Galeri</h3>
+      <p>Dokumentasi sekolah</p>
+    </div>
+  </div>
+
+  <div class="card coming">
+    <div class="big">▧</div>
+    <h4>Belum ada dokumentasi</h4>
+    <p>
+      Galeri akan diisi dengan foto kegiatan sekolah
+      setelah dokumentasi tersedia.
+    </p>
+  </div>
+</section>
+
+<section id="osis">
+  <div class="section-head">
+    <div>
+      <h3>OSIS</h3>
+      <p>Organisasi siswa</p>
+    </div>
+  </div>
+
+  <div class="card coming">
+    <div class="big">★</div>
+    <h4>OSIS — Coming Soon</h4>
+    <p>
+      Struktur pengurus dan program kerja OSIS terbaru
+      akan ditampilkan setelah diumumkan.
+    </p>
+  </div>
+</section>
+
+<section id="ekskul">
+  <div class="section-head">
+    <div>
+      <h3>Ekstrakurikuler</h3>
+      <p>Kegiatan pengembangan siswa</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card folder searchable">
+      <div class="folder-icon">⚑</div>
+      <h4>Pramuka</h4>
+      <p>Kegiatan kepramukaan.</p>
+    </div>
+
+    <div class="card folder searchable">
+      <div class="folder-icon">♪</div>
+      <h4>Tari</h4>
+      <p>Kegiatan seni dan budaya.</p>
+    </div>
+
+    <div class="card folder searchable">
+      <div class="folder-icon">●</div>
+      <h4>Handball</h4>
+      <p>Ekstrakurikuler olahraga.</p>
+    </div>
+
+    <div class="card folder searchable">
+      <div class="folder-icon">◉</div>
+      <h4>Futsal</h4>
+      <p>Ekstrakurikuler olahraga.</p>
+    </div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="section-head">
+    <div>
+      <h3>Kontak</h3>
+      <p>Hubungi sekolah</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h4>SMP Negeri 10 Satui</h4>
+    <p style="color:var(--muted);font-size:13px;margin-top:7px;">
+      Untuk informasi lebih lanjut, hubungi melalui WhatsApp.
+    </p>
+
+    <a
+      class="wa"
+      href="https://wa.me/6285823226495"
+      target="_blank"
+      rel="noopener"
+    >
+      Hubungi via WhatsApp
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>SMP Negeri 10 Satui</p>
+  <p style="margin-top:5px;">Website demo • TIK & Dokumentasi</p>
+</footer>
+
+<nav class="bottom-nav">
+  <a href="#home">
+    <span>⌂</span>
+    Beranda
+  </a>
+  <a href="#menu">
+    <span>▦</span>
+    Menu
+  </a>
+  <a href="#pengumuman">
+    <span>●</span>
+    Info
+  </a>
+  <a href="#kontak">
+    <span>⌁</span>
+    Kontak
+  </a>
+</nav>
+
+<script>
+
+const classes = {
+  VII: ["VII A","VII B","VII C"],
+  VIII: ["VIII A","VIII B","VIII C"],
+  IX: ["IX A","IX B","IX C"]
+};
+
+function showClass(level,button){
+
+  document.querySelectorAll(".class-tabs button")
+    .forEach(btn => btn.classList.remove("active"));
+
+  button.classList.add("active");
+
+  const content = document.getElementById("classContent");
+
+  content.innerHTML = classes[level].map(name => `
+    <div class="class-row searchable">
+      <div>
+        <div class="class-name">${name}</div>
+        <div class="class-info">Informasi kelas</div>
+      </div>
+      <span style="color:#5ca9df;">›</span>
+    </div>
+  `).join("");
+}
+
+showClass(
+  "VII",
+  document.querySelector(".class-tabs button")
+);
+
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+function searchSite(){
+
+  const query =
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
+
+  document.querySelectorAll(".searchable").forEach(item => {
+
+    const text = item.innerText.toLowerCase();
+
+    if(!query || text.includes(query)){
+      item.style.display = "";
+    }else{
+      item.style.display = "none";
+    }
+
+  });
+}
+
+</script>
+
+</body>
+  </html>
