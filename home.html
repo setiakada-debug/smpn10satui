@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMP Negeri 10 Satui</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #eef6ff;
+  color: #102a43;
+  min-height: 100vh;
+}
+
+.header {
+  padding: 20px;
+  background: white;
+  border-bottom: 1px solid #dbeafe;
+}
+
+.header h1 {
+  font-size: 23px;
+}
+
+.header p {
+  margin-top: 5px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.container {
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+}
+
+.section-title {
+  margin: 10px 0 15px;
+  font-size: 18px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.folder {
+  background: white;
+  border-radius: 18px;
+  padding: 22px 15px;
+  text-decoration: none;
+  color: #102a43;
+  box-shadow: 0 5px 18px rgba(30, 80, 140, 0.08);
+  border: 1px solid #e0efff;
+  transition: 0.2s;
+}
+
+.folder:active {
+  transform: scale(0.96);
+}
+
+.icon {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.folder h3 {
+  font-size: 16px;
+}
+
+.folder p {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #718096;
+}
+
+.logout {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  border-radius: 12px;
+  background: white;
+  color: #245b9e;
+  text-decoration: none;
+  border: 1px solid #dbeafe;
+  font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>SMP Negeri 10 Satui</h1>
+  <p>Portal Siswa</p>
+</div>
+
+<div class="container">
+
+  <a href="index.html" class="logout">← Keluar</a>
+
+  <h2 class="section-title">Menu Siswa</h2>
+
+  <div class="grid">
+
+    <a href="kelas-vii.html" class="folder">
+      <div class="icon">📁</div>
+      <h3>Class VII</h3>
+      <p>Data kelas 7</p>
+    </a>
+
+    <a href="kelas-viii.html" class="folder">
+      <div class="icon">📁</div>
+      <h3>Class VIII</h3>
+      <p>Coming Soon</p>
+    </a>
+
+    <a href="kelas-ix.html" class="folder">
+      <div class="icon">📁</div>
+      <h3>Class IX</h3>
+      <p>Coming Soon</p>
+    </a>
+
+  </div>
+
+</div>
+
+</body>
+</html>
